@@ -1,0 +1,306 @@
+/* =========================================================
+   1. PENGATURAN UMUM (GLOBAL)
+   ========================================================= */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+label {
+  display: block;
+  margin: 10px 0 5px 0;
+  font-size: 14px;
+  color: #b3b3b3;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  background-color: #2c2c2c;
+  border: 1px solid #444;
+  border-radius: 5px;
+  color: #ffffff;
+  font-size: 14px;
+  color-scheme: dark; /* Bikin kalender jadi gelap */
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+/* Membedakan kolom Total Harga yang otomatis (readonly) */
+input[readonly] {
+  background-color: #444;
+  font-weight: bold;
+  color: #4cd137;
+  cursor: not-allowed;
+}
+
+/* =========================================================
+   2. HALAMAN LOGIN & REGISTER
+   ========================================================= */
+/* Class khusus untuk body halaman login/register */
+body.page-auth {
+  background-color: #121212;
+  color: #e0e0e0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.auth-container {
+  background-color: #1e1e1e;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+  width: 100%;
+  max-width: 380px;
+}
+
+.auth-container h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #ffffff;
+}
+
+.error-message {
+  color: #ff6b6b;
+  background-color: rgba(255, 107, 107, 0.1);
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 14px;
+}
+
+/* =========================================================
+   3. HALAMAN DASHBOARD UTAMA (BERANDA)
+   ========================================================= */
+/* Class khusus untuk body halaman dashboard */
+body.page-dashboard {
+  display: flex;
+  height: 100vh;
+  background-color: #121212;
+  color: #e0e0e0;
+  overflow: hidden; /* Mencegah scroll pada body keseluruhan */
+}
+
+/* Sidebar Kiri */
+.sidebar {
+  width: 250px;
+  background-color: #1a1a1a;
+  padding: 25px 20px;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #333;
+}
+
+.sidebar h2 {
+  color: #007bff;
+  margin-bottom: 30px;
+  font-size: 20px;
+  text-align: center;
+}
+.menu-link {
+  display: block;
+  padding: 12px 15px;
+  margin-bottom: 10px;
+  color: #b3b3b3;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+.menu-link:hover {
+  background-color: #333;
+  color: white;
+}
+.menu-link.active {
+  background-color: #007bff;
+  color: white;
+}
+.logout-box {
+  margin-top: auto;
+}
+
+/* Konten Kanan */
+.content-area {
+  flex: 1;
+  padding: 40px;
+  overflow-y: auto;
+  background-color: #121212;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.header-container h1 {
+  font-size: 26px;
+  color: #ffffff;
+}
+hr {
+  border: 0;
+  border-top: 1px solid #444;
+  margin-bottom: 20px;
+}
+
+/* =========================================================
+   4. DESAIN TABEL
+   ========================================================= */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  background-color: #1e1e1e;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+th,
+td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #333;
+  text-align: left;
+}
+th {
+  background-color: #2c2c2c;
+  color: #ffffff;
+}
+tr:hover {
+  background-color: #2a2a2a;
+}
+
+/* Badge ID Ruangan */
+.slot-badge {
+  display: inline-block;
+  padding: 4px 8px;
+  margin: 2px;
+  background-color: #333;
+  color: #007bff;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: bold;
+  border: 1px solid #444;
+}
+.slot-id-label {
+  font-size: 12px;
+  color: #007bff;
+  font-weight: bold;
+}
+
+.status-badge {
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  color: white;
+}
+
+.status-aktif {
+  background-color: #007bff;
+}
+.status-selesai {
+  background-color: #555;
+}
+
+/* =========================================================
+   5. DESAIN TOMBOL (BUTTON)
+   ========================================================= */
+.btn {
+  padding: 10px 18px;
+  cursor: pointer;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: 0.3s;
+  width: 100%; /* Default lebar penuh untuk form */
+}
+.btn:hover {
+  background-color: #0056b3;
+}
+
+/* Tombol Khusus */
+.btn-auto {
+  width: auto;
+} /* Tombol menyesuaikan teks (untuk header) */
+.btn-edit {
+  background-color: #28a745;
+  width: auto;
+  padding: 6px 12px;
+  font-weight: normal;
+}
+.btn-edit:hover {
+  background-color: #218838;
+}
+.btn-hapus {
+  background-color: #dc3545;
+  color: white;
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: 5px;
+  font-size: 14px;
+}
+.logout-btn {
+  padding: 12px;
+  background-color: #dc3545;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  display: block;
+  text-align: center;
+}
+.btn-selesai {
+  background-color: #17a2b8;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  padding: 6px 12px;
+  border-radius: 5px;
+  color: white;
+  margin-bottom: 5px;
+}
+/* =========================================================
+   6. DESAIN POP-UP (MODAL)
+   ========================================================= */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 10;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-content {
+  background-color: #1e1e1e;
+  margin: 5% auto;
+  padding: 25px;
+  border-radius: 10px;
+  width: 450px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.close:hover {
+  color: #fff;
+}
