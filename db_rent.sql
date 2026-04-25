@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 24, 2026 at 02:48 PM
+-- Generation Time: Apr 25, 2026 at 05:16 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -42,8 +42,8 @@ CREATE TABLE `pengaturan_ruangan` (
 --
 
 INSERT INTO `pengaturan_ruangan` (`id`, `user_id`, `nama_ruangan`, `kode_prefix`, `jumlah_unit`, `kapasitas_per_unit`, `harga_per_jam`) VALUES
-(1, 1, 'Hot Desk', 'h', 10, 2, 15000),
-(2, 1, 'Private Office', 'p', 5, 4, 20000),
+(1, 1, 'Hot Desk', 'h', 11, 3, 15000),
+(2, 1, 'Private Office', 'p', 7, 4, 20000),
 (3, 1, 'Meeting Room', 'm', 3, 10, 30000);
 
 -- --------------------------------------------------------
@@ -71,10 +71,34 @@ CREATE TABLE `penyewaan` (
 
 INSERT INTO `penyewaan` (`id`, `user_id`, `nama_penyewa`, `jenis_ruangan`, `slot_id`, `tanggal_sewa`, `durasi_jam`, `total_harga`, `status_pembayaran`, `status_sewa`) VALUES
 (3, 1, 'Ilham', 'Hot Desk', 'h10', '2026-04-25', 5, 50000, 'Lunas', 'Selesai'),
-(4, 1, 'Asep', 'Hot Desk', 'h8', '2026-04-24', 5, 50000, 'Lunas', 'Aktif'),
+(4, 1, 'Asep', 'Hot Desk', 'h8', '2026-04-24', 5, 50000, 'Lunas', 'Selesai'),
 (5, 1, 'Ujang', 'Hot Desk', 'h2', '2026-04-24', 2, 30000, 'Lunas', 'Aktif'),
 (6, 1, 'Haq', 'Meeting Room', 'm1', '2026-04-25', 3, 90000, 'Lunas', 'Aktif'),
 (7, 1, 'Fais', 'Meeting Room', 'm3', '2026-04-24', 4, 120000, 'Lunas', 'Aktif');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pesanan_tambahan`
+--
+
+CREATE TABLE `pesanan_tambahan` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `penyewaan_id` int(11) NOT NULL,
+  `nama_pesanan` varchar(100) NOT NULL,
+  `harga_satuan` int(11) NOT NULL,
+  `jumlah` int(11) NOT NULL,
+  `subtotal` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `pesanan_tambahan`
+--
+
+INSERT INTO `pesanan_tambahan` (`id`, `user_id`, `penyewaan_id`, `nama_pesanan`, `harga_satuan`, `jumlah`, `subtotal`) VALUES
+(2, 1, 6, 'Cireng Rujak', 15000, 2, 30000),
+(3, 1, 7, 'Kopi Susu Gula Aren', 20000, 1, 20000);
 
 -- --------------------------------------------------------
 
@@ -114,6 +138,12 @@ ALTER TABLE `penyewaan`
   ADD KEY `user_id` (`user_id`);
 
 --
+-- Indexes for table `pesanan_tambahan`
+--
+ALTER TABLE `pesanan_tambahan`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -134,6 +164,12 @@ ALTER TABLE `pengaturan_ruangan`
 --
 ALTER TABLE `penyewaan`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `pesanan_tambahan`
+--
+ALTER TABLE `pesanan_tambahan`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `users`
