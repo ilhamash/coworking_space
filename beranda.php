@@ -38,6 +38,8 @@ $page = isset($_GET['page']) ? $_GET['page'] : 'dashboard';
             include 'menu_beranda.php';
         } else if ($page == 'ruangan') {
             include 'menu_ruangan.php';
+        } else if ($page == 'pesanan') { // Tambahkan ini
+            include 'menu_pesanan.php';
         } else {
             echo "<h2>Halaman tidak ditemukan!</h2>";
         }
