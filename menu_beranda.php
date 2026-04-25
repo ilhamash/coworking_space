@@ -83,7 +83,7 @@ $data_penyewaan = mysqli_query($conn, "SELECT * FROM penyewaan WHERE user_id = '
                 <button class="btn btn-edit" onclick="bukaModalEdit('<?php echo $row['id']; ?>')">Edit</button>
                 <a href="beranda.php?page=dashboard&selesai=<?php echo $row['id']; ?>" class="btn-selesai" onclick="return confirm('Sewa selesai? Slot akan kosong kembali.');">Selesai</a>
             <?php endif; ?>
-            <a href="hapus_sewa.php?id=<?php echo $row["id"]; ?>" class="btn-hapus" onclick="return confirm('Hapus permanen?');">Hapus</a>
+            <a href="delete.php?id=<?php echo $row["id"]; ?>" class="btn-hapus" onclick="return confirm('Hapus permanen?');">Hapus</a>
         </td>
     </tr>
 
